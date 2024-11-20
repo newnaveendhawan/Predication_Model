@@ -3,13 +3,12 @@ import pandas as pd
 from flask import Flask, render_template, request
 import pickle
 import numpy as np
-
-app = Flask(__name__, static_folder="static")
 data = pd.read_csv("Cleaned_data.csv")
 pipe = pickle.load(open("RidgeModel.pkl",'rb'))
 
+app = Flask(__name__, static_folder='static')
 @app.route('/')
-def index():
+def home():
     locations = sorted(data['location'].unique())
     return render_template('index.html', locations=locations)
 
