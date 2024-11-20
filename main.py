@@ -6,7 +6,7 @@ import numpy as np
 data = pd.read_csv("Cleaned_data.csv")
 pipe = pickle.load(open("RidgeModel.pkl",'rb'))
 
-app = Flask(__name__, static_folder='static')
+app = Flask(__name__, static_folder='static', template_folder="templates")
 @app.route('/')
 def home():
     locations = sorted(data['location'].unique())
