@@ -4,7 +4,7 @@ from flask import Flask, render_template, request
 import pickle
 import numpy as np
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder="static")
 data = pd.read_csv("Cleaned_data.csv")
 pipe = pickle.load(open("RidgeModel.pkl",'rb'))
 
